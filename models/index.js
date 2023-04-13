@@ -8,11 +8,12 @@ const NPC = require('./NPC');
 const Player = require('./Player');
 
 User.hasMany(Binder, {
-
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 })
 
 Binder.belongsTo(User, {
-
+    foreignKey: 'user_id'
 })
 
 Page.belongsTo(Binder, {
@@ -38,3 +39,5 @@ NPC.belongsTo(Binder, {
 Player.belongsTo(Binder, {
     
 })
+
+module.exports = { User, Binder }
